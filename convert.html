@@ -24,7 +24,7 @@
         Change the color and by hovering over the keyword: 
         <span id="hover-this"><b>this.</b></span>
     </p>
-    <p onmouseover="mouseOverFunction(this)"  onclick="setBackgroundColor(this)">
+    <p onmouseover="mouseOverFunction(this)"  id="color-this">
         Another task: This should be another feature. Click anywhere in this paragraph tag to change the background color to
         value entry input: <input type="text" id="color-input"/>.
     </p>
@@ -46,16 +46,21 @@
             setBackgroundColorById("body", "white");
         }
 
-        const color = document.querySelector("color-input")[0].value;
-        // var getValueFromId = id => {
-        //     return document.getElementById("color-input")[0].value;
-        // }
+        const colorInput = document.getElementById("color-input")[0].value;
 
-        var setBackgroundColor = element => {
-            element.style = `background-color:  + ${color}`;
+        const getValueFromId = id => {
+            return colorInput.value;
         }
-        var mouseOverFunction = element => {
-            element.style = "background-color: green";
+
+        document.getElementById("color-this").onclick = () => {
+            setBackgroundColorById("paragraph", colorInput);
+        }
+
+        const setBackgroundColorById = (id, color) => {
+            document.getElementById(id).style = "background-color: " + color;
+        }
+        const mouseOverFunction = element => {
+            element.style = "background-color: "+ colorInput;
         }
 
     </script>
