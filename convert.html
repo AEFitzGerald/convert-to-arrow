@@ -46,11 +46,11 @@
             setBackgroundColorById("body", "white");
         }
 
-        const colorInput = document.getElementById("color-input")[0].value;
-
         const getValueFromId = id => {
-            return colorInput.value;
+            return document.getElementById("color-input")[0].value;
         }
+
+        const colorInput = getValueFromId;
 
         document.getElementById("color-this").onclick = () => {
             setBackgroundColorById("paragraph", colorInput);
